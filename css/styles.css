@@ -61,6 +61,8 @@ a {
   --footer-text-color: #f4f4fd;
   --logo-footer-text-color: #f4f4fd;
   --color-light-slate: #8e8f99;
+  --animation-speed: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --green: #31D0AA;
 
   /**
     |============================
@@ -158,6 +160,7 @@ body {
 */
 .header {
   border-bottom: 1px solid var(--filter-btn-background-color);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header-container {
   display: flex;
@@ -191,6 +194,7 @@ body {
   padding-bottom: 24px;
   font-weight: 500;
   color: var(--title-text-color);
+  transition: color var(--animation-speed);
 }
 .header-nav-link:hover,
 .header-nav-link:focus,
@@ -208,6 +212,7 @@ body {
   padding-bottom: 24px;
   font-style: normal;
   color: var(--primary-text-color);
+  transition: color var(--animation-speed);
 }
 .contacts-link:hover,
 .contacts-link:focus {
@@ -249,6 +254,7 @@ body {
   padding: 15px 31px;
   color: var(--hero-btn-text-color);
   background-color: var(--hero-btn-background-color);
+  transition: background-color var(--animation-speed);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -335,6 +341,7 @@ body {
   height: 40px;
   background-color: var(--hero-btn-background-color);
   border-radius: 50%;
+  transition: background-color var(--animation-speed);
 }
 
 .socials-link:hover,
@@ -366,9 +373,11 @@ body {
   border: 1px solid var(--color-light-slate);
   border-radius: 4px;
   outline: transparent;
+  transition: border var(--animation-speed);
 }
 .customers-icon {
   fill: var(--color-light-slate);
+  transition: fill var(--animation-speed);
 }
 
 .customers-link:hover .customers-icon,
@@ -426,7 +435,13 @@ body {
   height: 40px;
   background-color: var(--primary-text-color);
   border-radius: 50%;
+  transition: background-color var(--animation-speed)
 }
+.footer-social-media-link:hover, 
+.footer-social-media-link:focus {
+  background-color: var(--green);
+}
+
 
 .footer-socials {
   display: flex;
@@ -448,6 +463,9 @@ body {
   color: var(--filter-btn-color);
   background-color: var(--filter-btn-background-color);
   border: 1px solid var(--filter-btn-background-color);
+  transition: background-color var(--animation-speed),
+    color var(--animation-speed), box-shadow var(--animation-speed),
+    border-radius var(--animation-speed);
 }
 
 .filter-btn:hover,
@@ -490,4 +508,167 @@ body {
 .our-portfolio-link {
   display: block;
   outline: transparent;
+  transition: box-shadow var(--animation-speed);
 }
+/**
+  |============================
+  | HW5
+  |============================
+*/
+
+/* Для всіх ефектів ховер і фокуса (колір, фон, тінь) зроблені переходи. Час - 250ms, функція розподілу часу - cubic-bezier(0.4, 0, 0.2, 1). */
+/* .btn {
+  transition: color, 250ms, cubic-bezier(0.4, 0, 0.2, 1), background-color, 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+.box-2 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.chat-menu {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.section-xxxxx {
+  position: sticky;
+  top: -1px;
+  /* -1px чтобы избежать засветов наверху страницы */
+}
+/* z-index: 1-перекроет элемент над этим элементом */
+/* z-index: -1-элемент станет под родителя */
+/* Overflow */
+/* div text wrapper
+text wrapper {
+  w500px
+  h400px;
+  border: 2px solid red;
+  padding 20px
+owerflow: hidden / scroll-2 scroll bars on Windows / 
+owerflow: auto-browser will chooose 1 or 2 scroll bars
+
+
+
+  p class=text
+  .text
+  {
+    backgc teal
+    padding 20px
+    color white
+    
+    {
+} */
+/* div thumb-image
+img w280
+
+.thumb-image {
+  border radius 20px
+  border 3px solid red
+  overflow: hidden(bradius will be showen correctly)
+}
+===========================
+text with pict
+===========================
+img
+p class thumb-text
+
+.thumb (img+p)
+position relative 
+w280px
+overflow hidden
+
+.img {
+  displ block
+}
+.thumb-text {
+  posit absolute
+  top 0
+  left 5%
+  w 90%
+  pad20px10px
+  bcg trgba
+  {
+ */
+/**
+   |============================
+   | Overlay Portfolio
+   |============================
+ */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px, 32px;
+  color: var(--footer-text-color);
+  background-color: var(--filter-btn-color);
+}
+
+.portfolio-item:hover .overlay {
+  transform: translateY(0);
+}
+
+/* .overlay-text {
+  
+  color: var(--footer-text-color);
+  background-color: var(--filter-btn-color);
+} */
+/* 
+nav-link
+
+normal state
+
+transiton-propert: all(default)/please mention specific vlstivist'
+color, box shadow, etc 
+
+trans-duration: 0s (defaults)/250ms/400ms
+trans-ligt-dur: ease (default)
+trans-delay: how long to wait before transition 1s,2s etc
+transition: color 400ms ease-in
+--anim-slow: 300ms ease-in
+
+
+active state
+*/
+
+/* 
+transform: 
+-translate(100px, 100px-change x&y-bottom,left), 
+-rotate-turn in deg(degrees)-will turn the element in deg
+-scale-change the size of the element in % accordingly to the el's center (x,y available)
+-skew
+
+transform-origin: top-left (turn from the left corner of the element)
+
+
+*/
+/* Modal */
+.backdrop {
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: #fcfcfc;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  width: 400px;
+  height: 500px;
+}
+
+/**
+  |============================
+  | Add script for modal
+  |============================
+*/
